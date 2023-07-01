@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	printf("\n\n\nTEST: __coin_toss()\n--------------\n");
 	for(i=0 ; i<10 ; i++)
 	{
-		printf("%f\n", __coin_toss(0.4));
+		printf("%f\n", __coin_toss(0.02));
 	}
 	
 	printf("\n\n\nTEST: ann_add_input(), normalized input\n--------------\n");
@@ -66,6 +66,27 @@ int main(int argc, char *argv[])
 	}
 	printf("\n");
 	printf("output: %2.2f\n", ann.output[0]);
+	//ann_export(&ann, "nino.ann");
+
+	printf("\n\n\nTEST: ann_export()\n-------------------------\n");
+	ann_export(&ann, "test.ann");
+	printf("check your file system, it should be appeared a new file named test.ann\n");
+	ann_destroy(&ann);
+	
+	struct ann* ann2 = ann_import("test.ann");
+	printf("\n\n\nTEST: ann_import()\n-------------------------\n");
+	printf("========== File contents: =========\n");
+	FILE* f = fopen("test.ann", "r");
+	char s[50];
+	while( fgets(s, 50, f))
+	{
+		printf("%s", s);
+	}
+	fclose(f);
+	
+	printf("\n\n========Actual Object==========\n");
+	__ann_print(ann2);
+	ann_destroy(ann2);
 
 	return 0;
 }
