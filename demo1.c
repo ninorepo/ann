@@ -1,3 +1,5 @@
+#define ANN_VERBOSE
+
 #include "ann.h"
 #include "stdlib.h"
 
@@ -45,6 +47,7 @@ int main(int argc, char *argv[])
 	ann.lrate = 0.005;
 	ann.target = 3;
 	ann.max_norm = 10000;
+	ann.debug = 1;
 	ann_hidden_func(&ann, ANN_LINEAR);
 	ann_output_func(&ann, ANN_SIGMOID);
 
@@ -64,7 +67,7 @@ int main(int argc, char *argv[])
 	printf("\n\n\nDataset\n=============\n");
 	for (i = 0; i < 50; i++)
 	{
-		printf("%3.2f\tX\t%3.2f\t=\t%3.2f\n", dataset_in[i * 2], dataset_in[i * 2 + 1], dataset_out[i]);
+		printf("%3.2f\t+\t%3.2f\t=\t%3.2f\n", dataset_in[i * 2], dataset_in[i * 2 + 1], dataset_out[i]);
 	}
 
 	//network run

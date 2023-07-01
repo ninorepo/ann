@@ -1,3 +1,5 @@
+#define ANN_VERBOSE
+
 #include "ann.h"
 #include "stdlib.h"
 
@@ -45,6 +47,7 @@ int main(int argc, char *argv[])
 	ann.lrate = 0.005;
 	ann.target = 90;
 	ann.max_norm = 1000;
+	ann.debug = 1;
 	ann_hidden_func(&ann, ANN_LINEAR);
 	ann_output_func(&ann, ANN_SIGMOID);
 
