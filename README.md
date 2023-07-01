@@ -35,15 +35,15 @@ ann.lrate = 0.05;	// learning rate
 ann.target = 0.3;	// target error you want to achieve
 ann.min_norm = 0;
 ann.max_norm = 100; // range number used for normalizing the input and output
-ann.hidden_func(&ann, ANN_RELU);	// set hidden activation function to RELU
-ann.output_func(&ann, ANN_SOFTMAX); // set output activation function to softmax
+ann_hidden_func(&ann, ANN_RELU);	// set hidden activation function to RELU
+ann_output_func(&ann, ANN_SOFTMAX); // set output activation function to softmax
 ```
 
 ### Training
 ```c
 double dataset_in[30];	// the ann have 3 inputs, data set is consists of 10 data records
 double dataset_out[10]; // the ann has 1 output with 10 data records
-ann.teach( &ann, dataset_in, dataset_out, 10); // run the training process untill target error has been reached
+ann_teach( &ann, dataset_in, dataset_out, 10); // run the training process untill target error has been reached
 ```
 
 ### Accessing input and output nodes
