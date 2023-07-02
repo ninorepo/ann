@@ -50,7 +50,7 @@ ann_teach( &ann, dataset_in, dataset_out, 10); // run the training process until
 ```c
 double buffer_in[3] = {10.0,50.0,29.6};
 double buffer_out = 0.0;
-ann_add_input(&ann, buffer_in);	// adding 3 inputs to the ann,the input automatically normalized by this function
+ann_add_input(&ann, buffer_in);	// feeding 3 inputs to the ann,the input automatically normalized by this function
 ann_forward(&ann); // run the network with one cycle of feedforward
 ann_get_output(&ann, &buffer_out);	//store the result to a buffer, there is 1 output node in this example, the output was automatically denormalized by the function
 ```
